@@ -10,8 +10,6 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     line-height: 1.6;
-    width: 100vw;
-    height: 100vh;
 }
 
 @font-face {
@@ -27,55 +25,30 @@ h1 {
     letter-spacing: 3px;
     margin-right: 1em;
     margin-top: 0.2em;
-    float: right;
 }
 
-.side-menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    max-width: 35vw;
-    overflow-wrap: wrap;
-    background-color: #0f0249;
-    float: left;
-}
-
-.side-menu ul {
-    margin-top: 70%;
-}
-
-.side-menu a {
-    font-size: 1.2em;
-    color:#dddbdb;
+.add,
+.list,
+.message {
     display: block;
-    margin: 1em;
+    border: 1px solid #e1bcc5;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-.side-menu li {
-    border-bottom: solid 1px;
-    border-color: #dddbdb;
+.add-hotel,
+.add-manager,
+.list-manager,
+.list-hotel {
+    padding: 20px;
+    display: block;
 }
 
-.side-menu a.active {
-    background-color: #0f0249ce;
-}
-
-.container {
-    height: 100vh;
-    display: flex;
-    margin-left: 280px;
-}
-
-#content {
-    height: 100%;
-    width: 100%;
-    margin-top: 100px;
-}
 
 .form-input,
 .button {
-    height: 30px;
+    height: 40px;
     width: 60%;
     margin: 2px;
     border-radius: 4px;
@@ -88,32 +61,28 @@ h1 {
     font-weight: bold;
 }
 
+.table {
+    border-collapse: collapse;
+}
+
+tr,
+td {
+    border: 1px, solid, #e1bcc5;
+    padding: 10px;
+}
+
 @media screen and (max-width: 950px) {
 
-    .side-menu {
-        max-width: 30vw;
-    }
-
-    .side-menu a {
-        font-size: 1em;
-    }
-
-    h1 {
+    h1,
+    h2 {
         font-size: 1.5em;
-    }
-
-    .container {
-        margin-left: 31vw;
     }
 }
 
 @media screen and (max-width: 700px) {
 
-    .side-menu a {
-        font-size: 0.8em;
-    }
-
-    h1 {
+    h1,
+    h2 {
         font-size: 0.9em;
     }
 }

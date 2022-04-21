@@ -1,7 +1,8 @@
 <?php 
 
 require_once('libs/loginReq.php');
-require_once('libs/signupGuestReq.php') ?>
+require_once('libs/signupGuestReq.php');
+?>
 
 <!DOCTYPE html>
 <html lang=fr">
@@ -31,7 +32,7 @@ require_once('libs/signupGuestReq.php') ?>
     </section>
 
     <div class="button">
-        <button class="booking-button"><a href="./includes/booking-page.php">Réserver</a></button>
+        <button class="booking-button"><a href="#modal-login">Réserver</a></button>
     </div>
 
     <!------------------------- Section chambre ------------------------->
@@ -74,7 +75,7 @@ require_once('libs/signupGuestReq.php') ?>
         </div>
     </section>
 
-    <!----------------- Section destinations (façon cards) ---------------->
+    <!--------------------- Section destinations  -------------------->
 
     <section id="destinations">
         <h1 class="destinations-title">Nos destinations
@@ -103,17 +104,14 @@ require_once('libs/signupGuestReq.php') ?>
                     <a href="#" data-filter="saint-malo">St-Malo</a>
                 </li>
             </ul>
-        </div>
-
-        
-        
+        </div>                
     </section>
 
     <div class="decorative">
     </div>
 
     <div class="button">
-    <button class="booking-button"><a href="./includes/booking.php">Réserver</a></button>
+    <button class="booking-button"><a href="#modal-login">Réserver</a></button>
     </div>
 
     <!----------- Section "A propos" (photo PDG et description) ------------>
@@ -158,28 +156,17 @@ require_once('libs/signupGuestReq.php') ?>
                 </div>
             </div>
 
-            <div id="CGV" class="modal">
-        <div class="modal-content">
-            <h1>Nos Conditions Générales de Vente (CGV)</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente animi sequi et quis. Optio, dolor ipsum perferendis cumque adipisci pariatur est, praesentium ipsam ratione dolore eveniet quia incidunt, quae harum.
-            Tenetur, exercitationem. Fugiat, veniam alias inventore voluptas odit facere, modi neque reprehenderit a officia voluptatibus earum perspiciatis deleniti, est error sequi soluta magnam sed pariatur ex obcaecati ducimus quia! Tempore.
-            Culpa vel deleniti dolor! Repellendus nam voluptatem nulla ex a, quos velit temporibus odit vero nobis exercitationem, cum perspiciatis explicabo repudiandae quae similique illo, et quia? Amet unde atque mollitia.
-            Deleniti, assumenda perspiciatis? Sed quos ullam numquam quam velit necessitatibus perspiciatis dolore fugiat iste laborum quisquam distinctio est amet reiciendis, voluptatum quas excepturi consectetur vel nemo. Exercitationem soluta alias dignissimos.
-            Reiciendis, quaerat dolore dignissimos, ipsum qui laborum accusamus odio sapiente tempore aspernatur odit rem? Doloribus quas odit voluptates ut ratione, tenetur exercitationem quidem laborum officia vel repudiandae distinctio cumque veniam?
-            Nobis dignissimos perspiciatis eum! Sit, magni eligendi! Quia atque perspiciatis sunt tenetur aliquid perferendis voluptate soluta, delectus animi, assumenda similique dolorem recusandae mollitia nam eum odio possimus deleniti architecto aperiam.
-            Doloremque mollitia nisi similique modi voluptatibus tempora! Incidunt nam iusto amet doloremque, expedita iste, libero aliquid harum temporibus molestiae neque sed tenetur culpa tempora pariatur exercitationem sapiente, voluptatum veritatis quaerat!
-            Dolorem quae, debitis odio explicabo consectetur quasi a sapiente architecto nisi dolor expedita unde inventore nostrum, tempore esse tempora iure aspernatur iste earum tenetur est. Corporis incidunt explicabo quod nam?
-            Qui aut quo soluta quae eum eaque. At, rem neque? Sed sit, sint esse quod cumque ex, numquam iste repellat suscipit porro nostrum? Numquam, quas possimus. Esse voluptatibus laborum modi.
-            Quas voluptate ullam hic doloremque aut corporis quibusdam aliquid harum dolore! Atque, quam? Nostrum officia doloribus commodi impedit vel eligendi provident delectus ex velit sunt, quod iure maxime nulla aliquam.</p>
-            <a href="#" class="modal-close">&times;</a>
-
     <!------------------------ Formulaire de contact ------------------------>
 
-            <div class="footer-right">
+    <div class="footer-right">
                 <div class="contact">
+
+    <?php
+    require('libs/messaging.php');
+    ?>
                     <h1 class="title">Contact</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quo, eos nostrum dolore nobis tempora laborum.</p>
-                    <form action="contact.php" class="form">
+                    <form action="" class="form">
                         <label for="firstname">
                         <input type="text" name="firstname" id="firstname" placeholder="Prénom">
                         </label>
@@ -189,8 +176,13 @@ require_once('libs/signupGuestReq.php') ?>
                         <label for="email">
                         <input type="email" name="email" id="email" placeholder="Email">
                         </label>
+                        <label for="subject">
+                        <input type="text" name="subject" id="subject" placeholder="Sujet de mon message">
+                        </label>
                         <textarea name="message" id="message" placeholder="Message"></textarea>
-                        <input type="submit" class="btn" value="Envoyer">
+                        <div class="form-label">
+                            <button type="submit" class="button" name="sendMessage">Envoyer mon message</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -13,12 +13,14 @@ if(isset($_POST['addManager'])){
         $user_lastname = htmlspecialchars($_POST['lastname']);
         $user_firstname = htmlspecialchars($_POST['firstname']);
         $user_email = htmlspecialchars($_POST['email']);
-        $user_mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+        $user_mdp = htmlspecialchars($_POST['mdp']);
 
         $checkIfUserExists = $bdd->prepare('SELECT email FROM users WHERE email = ?');
         $checkIfUserExists->execute(array($user_email));
 
         if($checkIfUserExists->rowCount() == 0){
+
+            $user_mdp = hash('sha256', $user_mdp);
 
             $addUserManager = $bdd->prepare('INSERT INTO users(lastname, firstname, email, mdp, RoleType)VALUES(?,?,?,?,?)');
             $addUserManager->execute(array($user_lastname, $user_firstname, $user_email, $user_mdp, 'manager'));

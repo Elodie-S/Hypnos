@@ -6,15 +6,15 @@ try {
     die('Une erreur est survenue : '. $e->getMessage());
 }
 
-if(isset($_POST['addHotel'])){
+if(isset($_POST)){
 
     if(!empty( $_POST['city']) AND !empty($_POST['name']) AND !empty($_POST['address']) AND !empty($_POST['description']) AND !empty($_POST['email'])){
         
-        $hotel_city = ($_POST['city']);
-        $hotel_name = ($_POST['name']);
-        $hotel_address = ($_POST['address']);
-        $hotel_description = ($_POST['description']);
-        $hotel_manager_email = ($_POST['email']);
+        $hotel_city = htmlspecialchars($_POST['city']);
+        $hotel_name = htmlspecialchars($_POST['name']);
+        $hotel_address = htmlspecialchars($_POST['address']);
+        $hotel_description = htmlspecialchars($_POST['description']);
+        $hotel_manager_email = htmlspecialchars($_POST['email']);
 
         $checkIfHotelExists = $bdd->prepare('SELECT * FROM hotel WHERE hotel_name = ?');
         $checkIfHotelExists->execute(array($hotel_name));
