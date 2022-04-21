@@ -1,9 +1,9 @@
 <?php 
 
 session_start();
-
+require '../libs/security.php';
 require '../libs/database.php';
-require '../libs/security.php' ?>
+?>
 
 
 <!DOCTYPE html>

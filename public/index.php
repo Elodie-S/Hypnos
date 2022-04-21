@@ -3,8 +3,8 @@
 // Connect to DB
 $conn = new mysqli("clwxydcjair55xn0.chr7pe7iynqr.eu-west-1.rds.amazonaws.com", "qt271pmrbtmyi652", "kbjk4ssnkpp4w2a3", "qsk9n8kar1sbyuhc");
 
-require 'libs/loginReq.php';
-require 'libs/signupGuestReq.php';
+require '../libs/loginReq.php';
+require '../libs/signupGuestReq.php';
 
 ?>
 
@@ -19,7 +19,7 @@ require 'libs/signupGuestReq.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <title>Hypnos - Suites & Spa</title>
 </head>
 
@@ -31,7 +31,7 @@ require 'libs/signupGuestReq.php';
     
     <section id="index">
         <div class="index">
-            <img src="./styles/img/Accueil-hypnos.jpg" alt="Bienvenue chez Hypnos">
+            <img src="../styles/img/Accueil-hypnos.jpg" alt="Bienvenue chez Hypnos">
         </div>
     </section>
 
@@ -124,7 +124,7 @@ require 'libs/signupGuestReq.php';
         <div class="grid">
             <div class="about-left">
                 <div class="founder-picture">
-                    <img src="./styles/img/About_us.jpg" alt="Fondatrice et dirigeante d'Hypnos" width="36%">
+                    <img src="../styles/img/About_us.jpg" alt="Fondatrice et dirigeante d'Hypnos" width="36%">
                 </div>
             </div>
             <div class="about-right">
@@ -167,7 +167,7 @@ require 'libs/signupGuestReq.php';
 
     <?php
     
-    require './libs/messaging.php';
+    require '../libs/messaging.php';
     ?>
                     <h1 class="title">Contact</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quo, eos nostrum dolore nobis tempora laborum.</p>
