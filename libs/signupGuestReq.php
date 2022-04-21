@@ -1,6 +1,6 @@
 <?php
 
-require('./libs/database.php');
+require 'database.php';
 
 if(isset($_POST['validate'])){
 

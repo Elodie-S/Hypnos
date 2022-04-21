@@ -1,3 +1,11 @@
+<?php 
+
+session_start();
+
+require '../libs/database.php';
+require '../libs/security.php' ?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +25,7 @@
     <div class="container">
         <div class="add">
         
-        <?php require('addHotelReq.php'); ?>
+        <?php require 'addHotelReq.php'; ?>
 
             <div class="add-hotel">
                 <form method="POST">
@@ -50,7 +58,7 @@
                 </form>
             </div>
 
-        <?php require('addManagerReq.php'); ?>
+        <?php require 'addManagerReq.php'; ?>
 
             <div class="add-manager">
                 <form action="" method="POST">
@@ -85,8 +93,6 @@
 
 
         <div class="list">
-
-        <?php require('../libs/database.php') ?>
 
         <div class="list-manager">
             <h2>Mes Managers</h2>

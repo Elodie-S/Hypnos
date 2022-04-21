@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+require '../libs/database.php'; 
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,7 +27,7 @@
         $ManagerCity = $_SESSION['lastname']; 
         ?>
 
-        <form action="addSuiteReq.php" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
 
         <h2>Ajouter une suite dans la ville de <?php echo $ManagerCity ?> </h2>
         <p>Tous les champs sont requis</p>
@@ -59,9 +66,6 @@
         </form>
 
         <div class="list">
-
-        <?php require('../libs/database.php') ?>
-
         <div class="list-suites">
             <h2>Mes Suites</h2>
 

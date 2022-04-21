@@ -1,13 +1,7 @@
 <?php
-session_start();
 
+require '../libs/database.php';
 $ManagerCity = $_SESSION['lastname']; 
-
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=hypnos;charset=utf8;', 'root', '');
-    } catch (Exception $e){
-        die('Une erreur est survenue : '. $e->getMessage());
-    }
 
 if(isset($_POST['addSuite'])){
 

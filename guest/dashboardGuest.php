@@ -1,13 +1,15 @@
 <?php
+
 session_start();
+
+require '../libs/database.php';
+
+if(!isset($_SESSION['auth'])){
+    header('Location: index.php');
+}
 
 $GuestID = $_SESSION['id']; 
 
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=hypnos;charset=utf8;', 'root', '');
-    } catch (Exception $e){
-        die('Une erreur est survenue : '. $e->getMessage());
-    }
 
 ?>
 
