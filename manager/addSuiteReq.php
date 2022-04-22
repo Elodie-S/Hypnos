@@ -1,6 +1,6 @@
 <?php
 
-require '../libs/database.php';
+require '../includes/database.php';
 $ManagerCity = $_SESSION['lastname']; 
 
 if(isset($_POST['addSuite'])){

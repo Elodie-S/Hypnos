@@ -1,10 +1,9 @@
 <?php 
-
-session_start();
-require '../includes/security.php';
-require '../includes/database.php';
+    session_start();
+    require '../includes/security.php';
+    require '../includes/database.php';
+    require 'addHotelReq.php'; 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,43 +16,29 @@ require '../includes/database.php';
 </head>
 
 <body>
-    <div class="title"><h1>hypnos</h1></div>
-    <div class="logout"><form action=""><button type="submit" name="logout">Se déconnecter</button></form></div>
-        
+    <div class="title">
+        <h1>hypnos</h1>
+        <form action=""><button type="submit" name="logout">Se déconnecter</button></form>
+    </div>   
 
     <div class="container">
-        
         <div class="hotel">
-        
-        <?php require 'addHotelReq.php'; ?>
-
             <div class="add-hotel">
                 <form method="POST">
                     <h2>Ajouter un établissement</h2>
                     <p>Tous les champs sont requis</p>
-                    <div class="form-label">
-                        <label for="city"></label>
-                            <input type="text" class="form-input" name="city" placeholder="Ville de l'établissement" required>
-                    </div>
-                    <div class="form-label">
-                        <label for="name"></label>
-                            <input type="text" class="form-input" name="name" placeholder="Nom de l'établissement" required>
-                    </div>
-                    <div class="form-label"> 
-                        <label for="address"></label>
+                    
+                    <label for="city"></label>
+                        <input type="text" class="form-input" name="city" placeholder="Ville de l'établissement" required>
+                    <label for="name"></label>
+                        <input type="text" class="form-input" name="name" placeholder="Nom de l'établissement" required>
+                    <label for="address"></label>
                         <input type="text" class="form-input" name="address" placeholder="Adresse de l'établissement" required>
-                    </div>
-                    <div class="form-label">
-                        <label for="description"></label>
+                    <label for="description"></label>
                         <input type="text" class="form-input" name="description" placeholder="Description" required>
-                    </div>
-                    <div class="form-label">
-                        <label for="manager"></label>
+                    <label for="manager"></label>
                         <input type="text" class="form-input" name="email" placeholder="Email du manager" required>
-                    </div>
-                    <div class="form-label">
-                        <button type="submit" class="button" name="addHotel">Ajouter</button>
-                    </div>
+                    <button type="submit" class="button" name="addHotel">Ajouter</button>
                 </form>
             </div>
 
@@ -98,29 +83,19 @@ require '../includes/database.php';
 
         <div class="manager">
             <?php require 'addManagerReq.php'; ?>
-            <div class="addManager">
+            <div class="add-manager">
                 <form action="" method="POST">
                     <h2>Ajouter un manager</h2>
                     <p>Tous les champs sont requis</p>
-                    <div class="form-label">
                         <label for="lastname"></label>
                             <input type="text" class="form-input" name="lastname" placeholder="Nom du manager" required>
-                    </div>
-                    <div class="form-label"> 
                         <label for="firstname"></label>
                         <input type="text" class="form-input" name="firstname" placeholder="Prénom du manager" required>
-                    </div>
-                    <div class="form-label">
                         <label for="email"></label>
                         <input type="email" class="form-input" name="email" placeholder="Email du manager" required>
-                    </div>
-                    <div class="form-label">
                         <label for="password"></label>
                         <input type="password" class="form-input" name="mdp" placeholder="Mot de passe" required>
-                    </div>
-                    <div class="form-label">
                         <button type="submit" class="button" name="addManager">Ajouter</button>
-                    </div>
                 </form>
             </div>
             <div class="list-manager">
@@ -148,7 +123,8 @@ require '../includes/database.php';
                             <td><?php echo $manager['lastname']; ?></td>
                             <td><?php echo $manager['firstname']; ?></td>
                             <td><?php echo $manager['email']; ?></td>
-                            <td><?php echo "<a>"."Supprimer"."</a>"; ?></td>
+                            <td><?php echo '<form'.' method'.' ="POST"><button'.' type="submit"'.' name="modifyManager">Modifier</button></form>'; ?></td>
+                            <td><?php echo '<form'.' method'.' ="POST"><button'.' type="submit"'.' name="removeManager">Supprimer</button></form>'; ?></td>
                         </tr>
                     <?php } ?>
                     </tbody>

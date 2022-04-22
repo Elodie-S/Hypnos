@@ -14,42 +14,94 @@ body {
 
 @font-face {
     font-family: 'tostada';
-    src: url(../styles/tostada-font/tostada-webfont.woff);
+    src: url(../public/tostada-font/tostada-webfont.woff);
     font-weight: normal;
     font-style: normal;
 }
 
 h1 {
-    color:#0f0249;
+    color: #dddbdb;
     font-family: 'tostada', sans-serif;
     letter-spacing: 3px;
     margin-right: 1em;
-    margin-top: 0.2em;
+    text-align: end;
 }
 
-.add,
-.list,
-.message {
-    display: block;
-    border: 1px solid #e1bcc5;
-    justify-content: center;
+h2 {
+    font-size: 1em;
+}
+
+.title {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #0f0249;
+    justify-content: space-between;
+}
+
+.title button {
     align-items: center;
-    
+    color: #0f0249;
+    border: none;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    background-color: #dddbdb;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+
+.hotel,
+.manager,
+.suite {
+    display:flex;
+    width: 100%;
 }
 
 .add-hotel,
 .add-manager,
+.new-booking,
+.add-suite {
+    flex-basis: 33%;
+    border: 2px solid #0f0249;
+    background-color: #0f0249;
+    color: #dddbdb;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+.list-hotel,
 .list-manager,
-.list-hotel {
-    padding: 20px;
-    display: block;
+.list-resa,
+.list-suites {
+    flex-basis: 66%;
+    border: 2px solid white;
+    background-color: white;
+    color: #0f0249;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+.message {
+    flex-basis: 100%;
+    border: 2px solid #e1bcc5;
+    background-color: #e1bcc5;
+    color: #0f0249;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px;
+
 }
 
 
 .form-input,
 .button {
     height: 40px;
-    width: 60%;
+    width: 100%;
     margin: 2px;
     border-radius: 4px;
 }
@@ -65,12 +117,6 @@ h1 {
     border-collapse: collapse;
 }
 
-tr,
-td {
-    border: 1px, solid, #e1bcc5;
-    padding: 10px;
-}
-
 @media screen and (max-width: 950px) {
 
     h1,
@@ -81,9 +127,14 @@ td {
 
 @media screen and (max-width: 700px) {
 
-    h1,
+  
     h2 {
         font-size: 0.9em;
+    }
+
+    .manager,
+    .hotel {
+        display: block;
     }
 }
 
