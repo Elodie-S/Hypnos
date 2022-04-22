@@ -48,7 +48,7 @@ header {
     display: block;
     top: 0;
     z-index: 2;
-    background: url(./img/NavBar.png) no-repeat;
+    background: url(img/NavBar.png) no-repeat;
 }
 
 nav {
@@ -162,7 +162,7 @@ nav {
 }
 
 .room-example {
-    content: url(./img/room-example.png);
+    content: url(img/room-example.png);
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -170,7 +170,7 @@ nav {
 }
 
 .services-example {
-    content: url(./img/spadesktop.png);
+    content: url(img/spadesktop.png);
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -245,7 +245,7 @@ margin-bottom: 0.3em;
 }
 
 .decorative {
-    content: url(./img/decorative.jpg);
+    content: url(img/decorative.jpg);
     height: 10%;
     width: 100%;
     margin-top: 20px;
@@ -443,12 +443,12 @@ margin-bottom: 0.3em;
     }
 
     .services-example {
-        content: url(./img/spa-mobile.jpg);
+        content: url(img/spa-mobile.jpg);
         width: 100%;
     }
 
     .room-example {
-        content: url(./img/room-mobile.jpg);
+        content: url(img/room-mobile.jpg);
         width: 100%;
         margin-bottom: 1em;
     }

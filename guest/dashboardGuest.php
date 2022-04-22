@@ -19,7 +19,7 @@ $GuestID = $_SESSION['id'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style-dashboard.css">
+    <link rel="stylesheet" href="../public/style-dashboard.css">
     <title>Mon espace Hypnos - Mes réservations</title>
 </head>
 

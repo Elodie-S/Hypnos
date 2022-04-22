@@ -15,11 +15,11 @@ require '../libs/signupGuestReq.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hypnos, groupe hôtelier fondé en 2004 et propriétaire de 7 établissements aux quatre coins de l'Hexagone, est la destination idéale pour les couples en quête d'un séjour romantique à deux. ">
-    <link rel="shortcut icon" href="./styles/img/favicon.ico" type="image/icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Hypnos - Suites & Spa</title>
 </head>
 
@@ -31,7 +31,7 @@ require '../libs/signupGuestReq.php';
     
     <section id="index">
         <div class="index">
-            <img src="../styles/img/Accueil-hypnos.jpg" alt="Bienvenue chez Hypnos">
+            <img src="img/Accueil-hypnos.jpg" alt="Bienvenue chez Hypnos">
         </div>
     </section>
 
@@ -124,7 +124,7 @@ require '../libs/signupGuestReq.php';
         <div class="grid">
             <div class="about-left">
                 <div class="founder-picture">
-                    <img src="../styles/img/About_us.jpg" alt="Fondatrice et dirigeante d'Hypnos" width="36%">
+                    <img src="img/About_us.jpg" alt="Fondatrice et dirigeante d'Hypnos" width="36%">
                 </div>
             </div>
             <div class="about-right">
@@ -194,6 +194,6 @@ require '../libs/signupGuestReq.php';
         </div>
     </footer>
 
-    <script src="../styles/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
