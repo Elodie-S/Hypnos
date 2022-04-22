@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hypnos, groupe hôtelier fondé en 2004 et propriétaire de 7 établissements aux quatre coins de l'Hexagone, est la destination idéale pour les couples en quête d'un séjour romantique à deux. ">
-    <link rel="shortcut icon" href="./styles/img/favicon.ico" type="image/icon">
+    <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../public/style.css">
     <title>Hypnos - Suites & Spa</title>
     <script src="./tarteaucitron.js-1.9.6/tarteaucitron/tarteaucitron.js"></script>
 

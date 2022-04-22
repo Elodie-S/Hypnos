@@ -1,6 +1,8 @@
 <?php
 
-require '../libs/database.php';
+session_start();
+
+require 'database.php';
 
 if(isset($_POST['validate-login'])){
 
@@ -32,15 +34,15 @@ if(isset($_POST['validate-login'])){
 
                 if($roleType == 'guest'){
 
-                    header('Location: ./guest/dashboardGuest.php');
+                    header('Location: ../guest/dashboardGuest.php');
 
                 } else if ($roleType == 'admin'){
 
-                    header('Location: ./admin/dashboardAdmin.php');
+                    header('Location: ../admin/dashboardAdmin.php');
 
                 } else if ($roleType == 'manager'){
 
-                    header('Location: ./manager/dashboardManager.php');
+                    header('Location: ../manager/dashboardManager.php');
 
                 } else {
                     $php_errormsg = "Une erreur est survenue. Merci de nous contacter via notre formulaire en bas de page.";

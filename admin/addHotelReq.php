@@ -1,6 +1,6 @@
 <?php
 
-require_once '../libs/database.php';
+require_once '../includes/database.php';
 
 if(isset($_POST)){
 

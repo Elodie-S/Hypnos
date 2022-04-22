@@ -1,8 +1,8 @@
 <?php 
 
 session_start();
-require '../libs/security.php';
-require '../libs/database.php';
+require '../includes/security.php';
+require '../includes/database.php';
 ?>
 
 
@@ -17,19 +17,18 @@ require '../libs/database.php';
 </head>
 
 <body>
-    <div class="title">
-        <h1>hypnos</h1>
-    </div>
+    <div class="title"><h1>hypnos</h1></div>
+    <div class="logout"><form action=""><button type="submit" name="logout">Se déconnecter</button></form></div>
         
 
     <div class="container">
-        <div class="add">
+        
+        <div class="hotel">
         
         <?php require 'addHotelReq.php'; ?>
 
             <div class="add-hotel">
                 <form method="POST">
-
                     <h2>Ajouter un établissement</h2>
                     <p>Tous les champs sont requis</p>
                     <div class="form-label">
@@ -58,16 +57,51 @@ require '../libs/database.php';
                 </form>
             </div>
 
-        <?php require 'addManagerReq.php'; ?>
+            <div class="list-hotel">
+                <h2>Mes établissements</h2>
 
-            <div class="add-manager">
+                <?php 
+                $queryHotel = "SELECT hotel_name, city, hotel_address,hotel_description, manager_email FROM hotel";
+                $listHotel = $bdd->prepare($queryHotel);
+                $listHotel->execute();
+                $hotels = $listHotel->fetchAll();    
+                ?>
+        
+                <table class="table">
+                    <thead id="thead">
+                        <tr>
+                            <th>Nom de l'établissement</th>
+                            <th>Ville</th>
+                            <th>Adresse</th>
+                            <th>Description</th>
+                            <th>Email du manager</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php foreach ($hotels as $hotel) { ?>
+                        <tr>
+                            <td><?php echo $hotel['hotel_name']; ?></td>
+                            <td><?php echo $hotel['city']; ?></td>
+                            <td><?php echo $hotel['hotel_address']; ?></td>
+                            <td><?php echo $hotel['hotel_description']; ?></td>
+                            <td><?php echo $hotel['manager_email']; ?></td>
+                            <td><?php echo '<form'.' method'.' ="POST"><button'.' type="submit"'.' name="modifyHotel">Modifier</button></form>'; ?></td>
+                            <td><?php echo '<form'.' method'.' ="POST"><button'.' type="submit"'.' name="removeHotel">Supprimer</button></form>'; ?></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table> 
+            </div>
+        </div>
+
+        <div class="manager">
+            <?php require 'addManagerReq.php'; ?>
+            <div class="addManager">
                 <form action="" method="POST">
-
                     <h2>Ajouter un manager</h2>
                     <p>Tous les champs sont requis</p>
-
-                    <?php if(isset($php_errormsg)){echo '<p>'.$php_errormsg.'</p>';}?>
-
                     <div class="form-label">
                         <label for="lastname"></label>
                             <input type="text" class="form-input" name="lastname" placeholder="Nom du manager" required>
@@ -89,99 +123,48 @@ require '../libs/database.php';
                     </div>
                 </form>
             </div>
+            <div class="list-manager">
+                <h2>Mes Managers</h2>
+
+                    <?php 
+                    $queryManager = "SELECT * FROM users WHERE RoleType = 'manager'";
+                    $listManager = $bdd->prepare($queryManager);
+                    $listManager->execute();
+                    $managers = $listManager->fetchAll();    
+                    ?>
+        
+                <table class="table">
+                    <thead id="thead">
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($managers as $manager) { ?>
+                        <tr>
+                            <td><?php echo $manager['lastname']; ?></td>
+                            <td><?php echo $manager['firstname']; ?></td>
+                            <td><?php echo $manager['email']; ?></td>
+                            <td><?php echo "<a>"."Supprimer"."</a>"; ?></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table> 
+            </div>
         </div>
-
-
-        <div class="list">
-
-        <div class="list-manager">
-            <h2>Mes Managers</h2>
-
-        <?php 
-        $queryManager = "SELECT * FROM users WHERE RoleType = 'manager'";
-        $listManager = $bdd->prepare($queryManager);
-        $listManager->execute();
-        $managers = $listManager->fetchAll();    
-        ?>
-        
-            <table class="table">
-                <thead id="thead">
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Email</th>
-                        <th>Supprimer</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-
-        <?php foreach ($managers as $manager) {
-        
-        ?>
-                    <tr>
-                        <td><?php echo $manager['lastname']; ?></td>
-                        <td><?php echo $manager['firstname']; ?></td>
-                        <td><?php echo $manager['email']; ?></td>
-                        <td><?php echo "<a>"."Supprimer"."</a>"; ?></td>
-                    </tr>
-        <?php } ?>
-                </tbody>
-            </table> 
-        </div>
-        
-        
-        
-
-            <div class="list-hotel">
-                <h2>Mes établissements</h2>
-
-        <?php 
-        $queryHotel = "SELECT hotel_name, city, hotel_address,hotel_description, manager_email FROM hotel";
-        $listHotel = $bdd->prepare($queryHotel);
-        $listHotel->execute();
-        $hotels = $listHotel->fetchAll();    
-        ?>
-        
-            <table class="table">
-                <thead id="thead">
-                    <tr>
-                        <th>Nom de l'établissement</th>
-                        <th>Ville</th>
-                        <th>Adresse</th>
-                        <th>Description</th>
-                        <th>Email du manager</th>
-                        <th>Supprimer</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-
-        <?php foreach ($hotels as $hotel) {
-        
-        ?>
-                    <tr>
-                        <td><?php echo $hotel['hotel_name']; ?></td>
-                        <td><?php echo $hotel['city']; ?></td>
-                        <td><?php echo $hotel['hotel_address']; ?></td>
-                        <td><?php echo $hotel['hotel_description']; ?></td>
-                        <td><?php echo $hotel['manager_email']; ?></td>
-                        <td><?php echo '<form'.' method'.' ="POST"><button'.' type="submit"'.' name="removeHotel">Supprimer</button></form>'; ?></td>
-                    </tr>
-        <?php } ?>
-                </tbody>
-            </table> 
-        </div>
-                
+              
         <div class="message">
             <h2>Mes Messages reçus</h2>
 
             <?php 
-        $queryMessage = "SELECT * FROM messaging";
-        $listMessage = $bdd->prepare($queryMessage);
-        $listMessage->execute();
-        $messages = $listMessage->fetchAll();    
-        ?>
+            $queryMessage = "SELECT * FROM messaging";
+            $listMessage = $bdd->prepare($queryMessage);
+            $listMessage->execute();
+            $messages = $listMessage->fetchAll();    
+            ?>
         
             <table class="table">
                 <thead id="thead">
@@ -194,21 +177,18 @@ require '../libs/database.php';
                 </thead>
                 <tbody>
                 
-        <?php foreach ($messages as $message) {
-        
-        ?>
+                <?php foreach ($messages as $message) { ?>
+                    
                     <tr>
                         <td><?php echo $message['message_id']; ?></td>
                         <td><?php echo $message['message_subject']; ?></td>
                         <td><?php echo $message['message_content']; ?></td>
                         <td><?php echo $message['message_sender']; ?></td>
                     </tr>
-        <?php } ?>
+                <?php } ?>
                 </tbody>
             </table> 
-        </div>   
-        
-        <form action=""><button type="submit" name="logout">Se déconnecter</button></form>
-        
+        </div>
+    </div>     
 </body>
 </html>

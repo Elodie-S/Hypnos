@@ -3,8 +3,8 @@
 // Connect to DB
 $conn = new mysqli("clwxydcjair55xn0.chr7pe7iynqr.eu-west-1.rds.amazonaws.com", "qt271pmrbtmyi652", "kbjk4ssnkpp4w2a3", "qsk9n8kar1sbyuhc");
 
-require '../libs/loginReq.php';
-require '../libs/signupGuestReq.php';
+require '../includes/loginReq.php';
+require '../includes/signupGuestReq.php';
 
 ?>
 
@@ -167,7 +167,7 @@ require '../libs/signupGuestReq.php';
 
     <?php
     
-    require '../libs/messaging.php';
+    require '../includes/messaging.php';
     ?>
                     <h1 class="title">Contact</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quo, eos nostrum dolore nobis tempora laborum.</p>
